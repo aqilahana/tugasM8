@@ -1,9 +1,8 @@
 import scrapy
-# import pandas as pd
 
 class Tugasm8SpiderSpider(scrapy.Spider):
     name = "tugasM8_spider"
-    # allowed_domains = ["bit.ly"]
+
     start_urls = ["https://store.playstation.com/en-id/category/05a2d027-cedc-4ac0-abeb-8fc26fec7180/"]
 
     def parse(self, response): # mengambil judul dan harga game
@@ -12,7 +11,7 @@ class Tugasm8SpiderSpider(scrapy.Spider):
 
         for title, price in zip(titles, prices): # masukan ke dictionary satu persatu data yang telah diambil
             yield{
-                "Nama Game" : title.strip(), # 
+                "Nama Game" : title.strip(),
                 "Harga" : price.strip()
             }
 
